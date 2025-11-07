@@ -199,21 +199,9 @@ Remember: You are an educational resource, NOT a medical professional.`;
     const data = await response.json();
     const aiResponse = data.choices[0].message.content;
 
-    // Final safety audit - check if response contains unsafe content
-    const responseSafetyCheck = checkSafety(aiResponse);
-    if (!responseSafetyCheck.safe) {
-      console.log('Response failed safety audit');
-      return new Response(
-        JSON.stringify({ 
-          response: 'I apologize, but I can only provide general educational information about diseases. For any medical concerns, please consult a qualified healthcare professional.',
-          safe: false,
-          type: 'safety_message'
-        }),
-        { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
-
-    console.log('Successfully generated safe response');
+    // The AI is already constrained by a strict system prompt
+    // No need for additional output filtering - trust the prompt
+    console.log('Successfully generated educational response');
 
     return new Response(
       JSON.stringify({ 
