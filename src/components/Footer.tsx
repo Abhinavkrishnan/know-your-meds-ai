@@ -21,9 +21,12 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="pt-6 border-t border-border">
+          <div className="pt-6 border-t border-border space-y-2">
             <p className="text-sm text-muted-foreground">
               © 2025 MediInfo. Educational Disease Information Platform.
+            </p>
+            <p className="text-xs text-muted-foreground/60">
+              Kanak • Abhinavkrishnan • Araslan • Aiswarya • Mayuri
             </p>
           </div>
         </div>
